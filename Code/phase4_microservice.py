@@ -128,7 +128,7 @@ if __name__ == "__main__":
     print ()
 
     uvicorn.run (
-        "phase4_microservice:app",
+        app,
         host = "0.0.0.0",
         port = port,
         reload = False,
