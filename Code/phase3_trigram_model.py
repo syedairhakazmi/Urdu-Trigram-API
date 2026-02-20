@@ -213,25 +213,37 @@ def generate_text (model, unigram, max_len = 100):
     return " ".join (generated)
 
 if __name__ == "__main__":
-
-    print ("\nLoading tokens...\n")
+    print ()
+    print ("Loading tokens...")
+    print ()
     tokens = load_tokens (TOKENIZED_DIR)
 
-    print ("\nBuilding counts...\n")
+    print ()
+    print ("Building counts...")
+    print ()    
     unigram, bigram_count, trigram_count = build_count_tables (tokens)
 
-    print ("\nBuilding interpolated model...\n")
+    print ()
+    print ("Building interpolated model...")
+    print ()
     model, total_tokens, vocab_size = build_interpolated_model (
         unigram, bigram_count, trigram_count
     )
 
-    print ("\nSaving model...\n")
+    print ()
+    print ("Saving model...")
+    print ()
     save_model (model, unigram, bigram_count, total_tokens, vocab_size, OUTPUT_MODEL)
 
-    print ("\nGenerating text...\n")
+    print ()
+    print ("Generating text...")
+    print ()
     model_loaded, unigram_loaded, bigram_loaded, meta = load_model (OUTPUT_MODEL)
 
     text = generate_text (model_loaded, unigram_loaded,50)
 
-    print ("\nGenerated Text:\n")
+    print ()
+    print ("Generated Text:")
+    print ()
     print (text)
+    print ()
